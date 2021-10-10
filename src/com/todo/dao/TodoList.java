@@ -145,7 +145,7 @@ public class TodoList {
 		Statement stat;
 		try {
 			stat = con.createStatement();
-			sql = "select ditinct category from list;";
+			sql = "select distinct category from list;";
 			ResultSet rs = stat.executeQuery(sql);
 			while(rs.next()) {
 				String cate = rs.getString("category");
