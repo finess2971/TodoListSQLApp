@@ -16,8 +16,10 @@ public class Menu {
         System.out.println("9. 카테고리 목록 (ls_cate)");
         System.out.println("10. 제목, 내용 검색 (find)");
         System.out.println("11. 카테고리 검색 (find_cate)");
-        System.out.println("12. ToDoList 관리 명령어 사용법 (help)");
-        System.out.println("13. 프로그램 종료 (exit)");
+        System.out.println("12. 작업 완료시키기 (comp)");
+        System.out.println("13. 완료된 작업 리스트(ls_comp)");
+        System.out.println("14. ToDoList 관리 명령어 사용법 (help)");
+        System.out.println("15. 프로그램 종료 (exit)");
     }
     
     public static void prompt()
