@@ -15,8 +15,8 @@ public class TodoList {
 	}
 
 	public int addItem(TodoItem t) {
-		sql = "insert into list (title, memo, category, current_date, due_date)"
-				+ "values (?,?,?,?,?);";
+		sql = "insert into list (title, memo, category, current_date, due_date, is_completed)"
+				+ "values (?,?,?,?,?,?);";
 		PreparedStatement pstmt;
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -25,6 +25,7 @@ public class TodoList {
 			pstmt.setString(3, t.getCate());
 			pstmt.setString(4, t.getCurrent_date());
 			pstmt.setString(5, t.getDue());
+			pstmt.setInt(6, t.getComp());
 			cnt = pstmt.executeUpdate();
 			pstmt.close();
 		} catch (SQLException e) {
@@ -49,7 +50,7 @@ public class TodoList {
 	}
 
 	public int editItem(TodoItem t) {
-		sql = "update list set title=?, memo=?, category=?, current_date=?, due_date=? where id=?;";
+		sql = "update list set title=?, memo=?, category=?, current_date=?, due_date=?, is_completed=? where id=?;";
 		PreparedStatement pstmt;
 		
 		try {
@@ -59,7 +60,8 @@ public class TodoList {
 			pstmt.setString(3, t.getCate());
 			pstmt.setString(4, t.getCurrent_date());
 			pstmt.setString(5, t.getDue());
-			pstmt.setInt(6,t.getId());
+			pstmt.setInt(6,t.getComp());
+			pstmt.setInt(7,t.getId());
 			cnt = pstmt.executeUpdate();
 			pstmt.close();		
 		} catch (SQLException e) {
@@ -164,7 +166,7 @@ public class TodoList {
 		try {
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, find);
-			ResultSet rs = pstmt.executeQuery(sql);
+			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				int id = rs.getInt("id");
 				String cate = rs.getString("category");
