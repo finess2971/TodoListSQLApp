@@ -50,9 +50,9 @@ public class TodoItem {
     
     public String toString() {
     	if(is_comp==0) {
-    		return "["+category+"] "+title+" - "+desc+" - "+due_date+" - "+current_date;
+    		return id+" ["+category+"] "+title+" - "+desc+" - "+due_date+" - "+current_date;
     	}
-    	return "["+category+"] "+title+" [V] - "+desc+" - "+due_date+" - "+current_date;
+    	return id+" ["+category+"] "+title+" [V] - "+desc+" - "+due_date+" - "+current_date;
     }
     
     public String toSaveString() {
