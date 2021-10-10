@@ -141,8 +141,9 @@ public class TodoUtil {
 
 		System.out.println("\n총 "+cnt+"개의 카테고리가 등록되어 있습니다");
 	}
+	
 	public static void complete(TodoList l, int id) {
-		if(l.complete(l, id)>1) {
+		if(l.complete(l, id)>0) {
 			System.out.println("완료되었습니다");
 		}
 	}

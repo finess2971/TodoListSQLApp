@@ -217,7 +217,7 @@ public class TodoList {
 	}
 	
 	public int complete(TodoList l, int id) {
-		sql = "update list set is_complement = 1 where id=" + id + ";";
+		sql = "update list set is_completed = 1 where id=" + id + ";";
 		PreparedStatement pstmt;
 		try {
 			pstmt = con.prepareStatement(sql);
@@ -235,7 +235,7 @@ public class TodoList {
 		sql = "Select * from list where is_completed = 1;";
 		try {
 			pstmt = con.prepareStatement(sql);
-			ResultSet rs = pstmt.executeQuery(sql);
+			ResultSet rs = pstmt.executeQuery();
 			while(rs.next()) {
 				int id = rs.getInt("id");
 				String cate = rs.getString("category");
